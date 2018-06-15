@@ -1,0 +1,32 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: 'true'
+  creationTimestamp: '2018-06-14T19:35:44Z'
+  labels:
+    app: guestbook
+  name: guestbook
+  namespace: demo-apps
+  resourceVersion: '151432'
+  selfLink: /apis/route.openshift.io/v1/namespaces/demo-apps/routes/guestbook
+  uid: 217d3728-700a-11e8-8f42-0a9c4eef7dca
+spec:
+  host: guestbook-demo-apps.apps.jay-poc.geixunsapoc02.com
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: guestbook
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+    - conditions:
+        - lastTransitionTime: '2018-06-14T19:35:44Z'
+          status: 'True'
+          type: Admitted
+      host: guestbook-demo-apps.apps.jay-poc.geixunsapoc02.com
+      routerName: router
+      wildcardPolicy: None
